@@ -19,7 +19,7 @@ CREATE TABLE Maps (
 
 -- Resources t�bla
 CREATE TABLE Resources (
-    user_id NUMBER PRIMARY KEY REFERENCES Users(user_id),
+    user_id NUMBER PRIMARY KEY REFERENCES Users_table(user_id),
     gold NUMBER DEFAULT 0,
     energy NUMBER DEFAULT 0
 );
@@ -27,7 +27,7 @@ CREATE TABLE Resources (
 -- Results t�bla
 CREATE TABLE Results (
     result_id NUMBER PRIMARY KEY,
-    user_id NUMBER REFERENCES Users(user_id),
+    user_id NUMBER REFERENCES Users_table(user_id),
     map_id NUMBER REFERENCES Maps(map_id),
     result_date DATE DEFAULT SYSDATE,
     win_loss VARCHAR2(10) CHECK (win_loss IN ('win', 'lose'))
