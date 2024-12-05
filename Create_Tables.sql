@@ -1,4 +1,4 @@
--- Users tábla
+-- Users tï¿½bla
 CREATE TABLE Users_table (
     user_id NUMBER PRIMARY KEY,
     username VARCHAR2(50) UNIQUE NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE Users_table (
     resources NUMBER DEFAULT 0
 );
 
--- Maps tábla
+-- Maps tï¿½bla
 CREATE TABLE Maps (
     map_id NUMBER PRIMARY KEY,
     map_name VARCHAR2(50) NOT NULL,
@@ -17,17 +17,18 @@ CREATE TABLE Maps (
     resource_reward NUMBER NOT NULL
 );
 
--- Resources tábla
+-- Resources tï¿½bla
 CREATE TABLE Resources (
     user_id NUMBER PRIMARY KEY REFERENCES Users(user_id),
     gold NUMBER DEFAULT 0,
     energy NUMBER DEFAULT 0
 );
 
--- Results tábla
+-- Results tï¿½bla
 CREATE TABLE Results (
     result_id NUMBER PRIMARY KEY,
     user_id NUMBER REFERENCES Users(user_id),
+    map_id NUMBER REFERENCES Maps(map_id),
     result_date DATE DEFAULT SYSDATE,
     win_loss VARCHAR2(10) CHECK (win_loss IN ('win', 'lose'))
 );
