@@ -1,0 +1,6 @@
+CREATE OR REPLACE TRIGGER set_user_id
+BEFORE INSERT ON User_table
+FOR EACH ROW
+BEGIN
+    SELECT user_id_seq.NEXTVAL INTO :NEW.user_id FROM dual;
+END;
