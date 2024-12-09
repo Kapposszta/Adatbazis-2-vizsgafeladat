@@ -1,0 +1,6 @@
+CREATE OR REPLACE TRIGGER set_map_id
+BEFORE INSERT ON Map_table
+FOR EACH ROW
+BEGIN
+    SELECT map_id_seq.NEXTVAL INTO :NEW.map_id FROM dual;
+END;
